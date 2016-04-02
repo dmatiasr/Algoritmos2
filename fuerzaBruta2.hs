@@ -29,6 +29,7 @@ sublista (x:xs)=  sublista xs ++ tail (inits (x:xs) )
 inits::[a]->[[a]]
 inits [] = [ [] ]
 inits (x:xs) = [] : map (x:) (inits xs)
+--map se aplica a lista de listas map 1: [[2],[3],[4]] = [[1,2],[1,3],[1,3]]
 --sublista (x:xs) =  (x:xs) : init (x:xs) : sublista xs 
 
 
@@ -36,9 +37,9 @@ inits (x:xs) = [] : map (x:) (inits xs)
 
 
 -- subconjuntos de un conjuntos otra version
---subset::[a]->[[a]]
---subset [] = [[]]
---subset
+subset::[a]->[[a]]
+subset [] = [[]]
+subset (x:xs)=   map (x:)  [ys | ys<-subset xs] ++ subset xs
 
 
 
