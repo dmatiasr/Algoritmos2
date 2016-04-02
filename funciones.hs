@@ -31,5 +31,10 @@ isSorted (x:y:ys) = (x<=y) && isSorted (y:ys)
 
 --Sublistas
 sublists::[a] -> [[a]]
-sublists []=[[]]
-sublists (x:xs) = [x:xs]++[[x]]++sublists (xs)
+sublists [] = [[]]
+sublists (x:xs) = listAux (x:xs) ++ sublists(xs)
+
+--Calculo auxiliar
+listAux::[a] -> [[a]]
+listAux [x] = [[x]]
+listAux (x:xs) = [(x:xs)]++listAux(init(x:xs))
