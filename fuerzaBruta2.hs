@@ -21,9 +21,27 @@ subconjuntos (x:xs) = [x:ys | ys <- subconjuntos xs] ++ subconjuntos xs
 
 
 --Generar todas las sublistas de una lista
---sublista:: [a] -> [[a]]
---sublista [] = [[]]
---sublista (x:xs) =
+sublista:: [a] -> [[a]]
+sublista [] = [[]] 
+sublista (x:xs)=  sublista xs ++ tail (inits (x:xs) )
+
+
+inits::[a]->[[a]]
+inits [] = [ [] ]
+inits (x:xs) = [] : map (x:) (inits xs)
+--sublista (x:xs) =  (x:xs) : init (x:xs) : sublista xs 
+
+
+
+
+
+-- subconjuntos de un conjuntos otra version
+--subset::[a]->[[a]]
+--subset [] = [[]]
+--subset
+
+
+
 
 --Escriba un programa Haskell que implemente el algoritmo de ordenamiento SlowSort, que ordena
 --una lista de elementos (por ejemplo, de enteros) mediante la generaci ́on de la lista de todas las permuta-
